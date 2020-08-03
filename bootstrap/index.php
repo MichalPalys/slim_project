@@ -9,9 +9,13 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $container = new Container();
 
+$settings = require  __DIR__ . '/../app/settings.php';
+$settings($container);
+
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
+$app->addErrorMiddleware(true, true, true);
 $app->get('/', function (Request $request, Response $response, $parameters) {
     $response->getBody()->write('Hello World!');
 

@@ -15,7 +15,9 @@ $settings($container);
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
-$app->addErrorMiddleware(true, true, true);
+$middleware = require __DIR__ . '/../app/middleware.php';
+$middleware($app);
+
 $app->get('/', function (Request $request, Response $response, $parameters) {
     $response->getBody()->write('Hello World!');
 

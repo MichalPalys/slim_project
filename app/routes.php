@@ -12,7 +12,9 @@ return function (App $app) {
 
         $blade = (new Blade($views, $cache))->make($template, $withData);
 
-        return $response->getBody()->write($blade->render());
+        $response->getBody()->write($blade->render());
+
+        return $response;
     }
 
     $app->get('/home', function (Request $request, Response $response, $parameters) {

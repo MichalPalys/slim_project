@@ -15,9 +15,9 @@ class WelcomeController
         return $response;
     }
 
-    public function show(Request $request, Response $response, $name)
+    public function show(Request $request, Response $response, $name, $id)
     {
-        $response->getBody()->write("Welcome {$name}");
+        $response->getBody()->write("Welcome {$name} yours id is {$id}");
 
         return $response;
     }

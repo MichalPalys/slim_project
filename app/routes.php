@@ -12,5 +12,5 @@ return function (App $app) {
         return view($response, 'auth.home', compact('name'));
     });
     $app->get('/', [WelcomeController::class, 'index']);
-    $app->get('/{name}', [WelcomeController::class, 'show']);
+    $app->get('/{name}/{id}', [WelcomeController::class, 'show']);
 };

@@ -76,7 +76,7 @@ if (!function_exists('app_path'))
 if (!function_exists("view"))
 {
     function view(Response $response, $template, $withData = []) {
-        $cache = __DIR__ . '/../cache';
+        $cache = __DIR__ . '/../storage/cache';
         $views = __DIR__ . '/../resources/views';
 
         $blade = (new Blade($views, $cache))->make($template, $withData);
